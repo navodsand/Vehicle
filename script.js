@@ -1,30 +1,31 @@
  
- function display(){
+ function display(vehicle){
 
     const vehicleInfo = `<h1>Details</h1>
     <img src="land .jpg" alt="Car Image" />
     <table>
       <tr>
         <th>Brand</th>
-        <td></td>
+        <td>${vehicle.Brand}</td>
       </tr>
       <tr>
         <th>Model</th>
-        <td></td>
+        <td>${vehicle.Model}</td>
       </tr>
       <tr>
         <th>Price</th>
-        <td></td>
+        <td>${vehicle.Price}</td>
       </tr>
       <tr>
         <th>Year</th>
-        <td></td>
+        <td>${vehicle.Year}</td>
       </tr>
       <tr>
         <th>Color</th>
-        <td></td>
+        <td>${vehicle.Color}</td>
       </tr>
     </table>`;
+    document.querySelector('.container').innerHTML = vehicleInfo;
  }
  
  
@@ -32,7 +33,7 @@
 
  xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200){
-        console.log(xhr.responseText);
+        display(JSON.parse(xhr.responseText));
     }
  }
 
